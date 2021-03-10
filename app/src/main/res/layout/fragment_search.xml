@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:clickable="true"
+    android:background="?attr/colorPrimary"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MainActivity"
+    android:focusable="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
+        android:elevation="0dp"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:clipToPadding="false"
+            android:elevation="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:visibility="visible"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutSearchBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/main_box_height"
+                android:layout_marginTop="@dimen/main_box_margin_top"
+                android:layout_marginEnd="@dimen/main_box_margin_lf"
+                android:layout_marginBottom="@dimen/main_box_margin_top"
+                android:background="@drawable/main_box_bg"
+                android:clickable="false"
+                android:elevation="2dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toTopOf="@+id/guidelineSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:focusableInTouchMode="false"
+                >
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/editTextSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@android:color/transparent"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:hint="Search your notes"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/main_text_title_dark"
+                    android:textColorHint="@color/main_text_title_dark"
+                    android:textSize="15sp"
+                    android:windowSoftInputMode="stateVisible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageViewClear"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewBack"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlCompat" />
+
+                <ImageView
+                    android:id="@+id/imageViewBack"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/ripple_effect_rounded"
+                    android:clickable="true"
+                    android:padding="8.5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+
+                <ImageView
+                    android:id="@+id/imageViewClear"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_marginRight="8dp"
+                    android:background="@drawable/ripple_effect_rounded"
+                    android:clickable="true"
+                    android:padding="8.5dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_close" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

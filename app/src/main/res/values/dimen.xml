@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="main_box_height">50dp</dimen>
+    <dimen name="main_box_margin_top">2dp</dimen>
+    <dimen name="main_box_margin_lf">16dp</dimen>
+    <dimen name="main_corner">8dp</dimen>
+
+</resources>
