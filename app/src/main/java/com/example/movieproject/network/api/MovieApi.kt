@@ -14,4 +14,7 @@ interface MovieApi {
     @GET("discover/movie?sort_by=popularity.desc")
     fun getAllMovies(@Query("page") pageNumber: Int) : LiveData<ApiResponse<MovieResponse>>
 
+    @GET("search/movie?include_adult=false")
+    fun searchMovieByName(@Query("query") query: String) : LiveData<ApiResponse<MovieResponse>>
+
 }

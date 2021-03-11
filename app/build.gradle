@@ -94,7 +94,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // -- leak canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
 
     // -- glide
     def glide_version = "4.12.0"

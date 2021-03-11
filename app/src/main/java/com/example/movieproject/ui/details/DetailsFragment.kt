@@ -3,8 +3,11 @@ package com.example.movieproject.ui.details
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
 import com.example.movieproject.R
+import com.example.movieproject.ui.home.MovieClickListener
 import com.example.movieproject.utill.FragmentKeys.Companion.IMAGE_PATH
 import com.example.movieproject.utill.FragmentKeys.Companion.OVERVIEW
 import com.example.movieproject.utill.FragmentKeys.Companion.TITLE
@@ -22,6 +25,9 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
     private var mImagePath: String? = null
     private var mVoteAverage: String? = null
 
+    private var mNavController: NavController? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,7 +37,19 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mNavController = Navigation.findNavController(view)
+        build()
         setMovies()
+    }
+
+    private fun build() {
+        init()
+    }
+
+    private fun init() {
+        imageViewBack.setOnClickListener{
+            mNavController!!.popBackStack()
+        }
     }
 
     private fun setMovies() {

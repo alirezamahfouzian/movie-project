@@ -33,7 +33,6 @@
         android:maxLines="2"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:text="batman movie batman movie"
         android:textAlignment="textStart"
         android:textColor="@color/main_text_title_dark"
         android:textSize="19sp"
@@ -54,7 +53,6 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingBottom="16dp"
-        android:text="batman movie batman moviebatman movie batman moviebatman movie batman moviebatman movie batman moviebatman movie batman moviebatman movie batman moviebatman movie batman movie"
         android:textColor="@color/main_text_title_dark"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,11 +65,55 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
-        android:text="97.2"
         android:textColor="@color/main_text_title_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewTitleDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textViewTitleDetails" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_box_bg_details"
+        android:clickable="false"
+        android:clipToPadding="false"
+        android:elevation="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutSearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_box_height"
+            android:clickable="false"
+            android:elevation="2dp"
+            android:focusableInTouchMode="false"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewBack"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/ripple_effect_rounded"
+                android:clickable="true"
+                android:padding="8.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back_light" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

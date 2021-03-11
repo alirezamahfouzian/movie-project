@@ -10,6 +10,7 @@
 
     <color name="main_bg_primary">#FDFDFE</color>
     <color name="main_bg_primary_dark">#202125</color>
+    <color name="toolbar_fade_color">#50202125</color>
     <color name="main_bg_Secondary">#FDFDFE</color>
     <color name="main_bg_Secondary_dark">#2E2F33</color>
     <color name="main_text">#616163</color>

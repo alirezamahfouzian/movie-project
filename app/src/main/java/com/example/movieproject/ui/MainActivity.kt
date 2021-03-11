@@ -9,9 +9,14 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.example.movieproject.R
+import com.example.movieproject.ui.home.HomeViewModel
 import com.example.movieproject.utill.ActivityHelper
 import com.example.movieproject.utill.ConnectionLiveData
 import com.google.android.material.snackbar.Snackbar
@@ -34,6 +39,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var mConnectionLiveData: ConnectionLiveData
+
+    private val mHomeViewModel: HomeViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

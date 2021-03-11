@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="ltr"
-    android:clickable="true"
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity"
-    android:focusable="true">
+    android:clickable="true"
+    android:focusable="true"
+    >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewSerachMovies"
@@ -79,7 +81,7 @@
                     android:background="@android:color/transparent"
                     android:focusable="true"
                     android:gravity="center_vertical"
-                    android:hint="Search your notes"
+                    android:hint="@string/search_some_movies"
                     android:textAlignment="textStart"
                     android:textColor="@color/main_text_title_dark"
                     android:textColorHint="@color/main_text_title_dark"
@@ -87,8 +89,10 @@
                     android:windowSoftInputMode="stateVisible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/imageViewClear"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageViewBack"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
                     tools:ignore="RtlCompat" />
 
                 <ImageView

@@ -1,6 +1,5 @@
 package com.example.movieproject.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import com.example.movieproject.network.api.MovieApi
@@ -20,27 +19,54 @@ class MovieRepository @Inject constructor(
     private val allMoviesLiveData: MediatorLiveData<Resource<List<MovieEntity>>> =
         MediatorLiveData()
 
+    private val searchResultsLiveData: MediatorLiveData<Resource<List<MovieEntity>>> =
+        MediatorLiveData()
+
     fun getAllMovies(pageNumber: Int): LiveData<Resource<List<MovieEntity>>> {
-        setValue(Resource.Loading(null))
+        setAllMoviesValue(Resource.Loading(null))
         movieApi.getAllMovies(pageNumber).observeForever {
             when (it) {
                 is ApiSuccessResponse -> {
-                    setValue(Resource.Success(it.body.results!!))
+                    setAllMoviesValue(Resource.Success(it.body.results!!))
                 }
                 is ApiEmptyResponse -> {
-                    setValue(Resource.Error("Empty response"))
+                    setAllMoviesValue(Resource.Error("Empty response"))
                 }
                 is ApiErrorResponse -> {
-                    setValue(Resource.Error(it.errorMessage))
+                    setAllMoviesValue(Resource.Error(it.errorMessage))
                 }
             }
         }
         return allMoviesLiveData
     }
 
-    private fun setValue(newValue: Resource<List<MovieEntity>>) {
+    fun searchMovieByName(query: String): LiveData<Resource<List<MovieEntity>>> {
+        setSearchResultValue(Resource.Loading(null))
+        movieApi.searchMovieByName(query).observeForever {
+            when (it) {
+                is ApiSuccessResponse -> {
+                    setSearchResultValue(Resource.Success(it.body.results!!))
+                }
+                is ApiEmptyResponse -> {
+                    setSearchResultValue(Resource.Error("Empty response"))
+                }
+                is ApiErrorResponse -> {
+                    setSearchResultValue(Resource.Error(it.errorMessage))
+                }
+            }
+        }
+        return searchResultsLiveData
+    }
+
+    private fun setAllMoviesValue(newValue: Resource<List<MovieEntity>>) {
         if (allMoviesLiveData.value != newValue) {
             allMoviesLiveData.value = newValue
+        }
+    }
+
+    private fun setSearchResultValue(newValue: Resource<List<MovieEntity>>) {
+        if (searchResultsLiveData.value != newValue) {
+            searchResultsLiveData.value = newValue
         }
     }
 

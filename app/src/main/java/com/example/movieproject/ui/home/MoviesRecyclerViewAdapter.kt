@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieproject.R
 import com.example.movieproject.network.entity.MovieEntity
-import javax.inject.Inject
+import com.example.movieproject.ui.search.SearchFragment
 
 
-class MoviesRecyclerViewAdapter @Inject constructor(
-    private val mContext: Context,
-    fragment: HomeFragment
+class MoviesRecyclerViewAdapter constructor(
+    private val mContext: Context
 ) : RecyclerView.Adapter<MoviesRecyclerViewAdapter.ViewHolder>() {
     val TAG = "MoviesRecyclerView"
     var mResponseList: List<MovieEntity> = ArrayList()
-    private val mMovieClickListener: MovieClickListener
+
+    private lateinit var mMovieClickListener: MovieClickListener
 
     fun setData(responseList: List<MovieEntity>) {
         val oldList = mResponseList
@@ -32,10 +32,13 @@ class MoviesRecyclerViewAdapter @Inject constructor(
         diffResult.dispatchUpdatesTo(this)
     }
 
-    init {
+    fun setListener(fragment: HomeFragment) {
         mMovieClickListener = fragment
     }
 
+    fun setListener(fragment: SearchFragment) {
+        mMovieClickListener = fragment
+    }
 
     class DataDiffUtilCallBack(
         private val oldList: List<MovieEntity>,
@@ -76,7 +79,7 @@ class MoviesRecyclerViewAdapter @Inject constructor(
         val listNote = mResponseList[position]
         val url = "https://image.tmdb.org/t/p/w300${listNote.imagePath}"
         holder.textViewTitle!!.text = listNote.title
-        Glide.with(mContext).load(url).into(holder.imageViewPoster!!);
+        Glide.with(mContext).load(url).into(holder.imageViewPoster!!)
         holder.itemView.setOnClickListener {
             mMovieClickListener.onNoteClickListener(
                 listNote,
