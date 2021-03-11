@@ -79,8 +79,8 @@ dependencies {
 
 
     // -- Hilt
-    def hilt_version = "2.28-alpha"
-    def hilt_viewModel_version = "1.0.0-alpha02"
+    def hilt_version = "2.31-alpha"
+    def hilt_viewModel_version = "1.0.0-alpha03"
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
@@ -90,13 +90,22 @@ dependencies {
 
     // -- navigation
     def nav_version = "2.3.3"
-    implementation "androidx.navigation:navigation-fragment:$nav_version"
-    implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // -- leak canary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.6'
+
+    // -- glide
+    def glide_version = "4.12.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
+    // -- picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // -- monitoring network
+    implementation 'com.github.pwittchen:reactivenetwork-rx2:3.0.8'
 
 
 }

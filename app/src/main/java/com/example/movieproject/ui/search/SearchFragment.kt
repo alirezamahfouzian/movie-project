@@ -11,8 +11,10 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import com.example.movieproject.R
 import com.example.movieproject.ui.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_search.*
 
+@AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search),
     View.OnClickListener {
 
@@ -61,7 +63,7 @@ class SearchFragment : Fragment(R.layout.fragment_search),
                 i1: Int,
                 i2: Int
             ) {
-                if (charSequence.length == 0) {
+                if (charSequence.isEmpty()) {
                     imageViewClear!!.visibility = View.GONE
                 } else {
                     imageViewClear!!.visibility = View.VISIBLE
@@ -84,7 +86,7 @@ class SearchFragment : Fragment(R.layout.fragment_search),
         }
     }
 
-    fun showSoftKeyboard(view: View?) {
+    private fun showSoftKeyboard(view: View?) {
         val inputMethodManager =
             mActivity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         view?.requestFocus()

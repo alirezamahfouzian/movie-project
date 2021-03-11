@@ -1,8 +1,6 @@
 package com.example.movieproject.network.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -10,34 +8,42 @@ import com.google.gson.annotations.SerializedName
 data class MovieEntity(
 
     @Expose
+    @SerializedName("status_message")
+    val status_message: String?,
+    @SerializedName("status_code")
+    @Expose
+    val status_code: String?,
+    @Expose
+    val id: String?,
+    @Expose
     val title: String?,
     @Expose
-    @SerializedName("overview")
-    var overview: Int?,
-    @Expose
-    val note: String?,
+    var overview: String?,
     @Expose
     @SerializedName("poster_path")
-    var imagePath: String?
+    var imagePath: String?,
+    @Expose
+    @SerializedName("vote_average")
+    var voteAverage: String?
 
 
 ) {
     // for diff util comparison
-//    override fun equals(other: Any?): Boolean {
-//        if (javaClass != other?.javaClass)
-//            return false
-//
-//        other as MovieEntity
-//
-//        if (noteId != other.noteId)
-//            return false
-//        if (title != other.title)
-//            return false
-//        if (note != other.note)
-//            return false
-//        if (modifiedTime != other.modifiedTime)
-//            return false
-//
-//        return true
-//    }
+    override fun equals(other: Any?): Boolean {
+        if (javaClass != other?.javaClass)
+            return false
+        other as MovieEntity
+        if (overview != other.overview)
+            return false
+        if (title != other.title)
+            return false
+        if (overview != other.overview)
+            return false
+        if (imagePath != other.imagePath)
+            return false
+        if (voteAverage != other.voteAverage)
+            return false
+
+        return true
+    }
 }

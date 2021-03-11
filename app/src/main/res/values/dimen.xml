@@ -5,5 +5,6 @@
     <dimen name="main_box_margin_top">2dp</dimen>
     <dimen name="main_box_margin_lf">16dp</dimen>
     <dimen name="main_corner">8dp</dimen>
+    <dimen name="get_info_snackbar_text_size">14sp</dimen>
 
 </resources>
