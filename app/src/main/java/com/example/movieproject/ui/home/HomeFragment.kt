@@ -60,7 +60,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, Not
         init()
         setUpRefreshLayout()
         fixRefreshLayoutBug()
-        setRecyclerViewNote()
+        setRecyclerViewMovie()
     }
 
     private fun setUpRefreshLayout() {
@@ -90,7 +90,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, Not
         }
     }
 
-    private fun setRecyclerViewNote() {
+    private fun setRecyclerViewMovie() {
         mAdapter = MoviesRecyclerViewAdapter(mActivity, this)
         recyclerViewNote!!.layoutManager = GridLayoutManager(mActivity, 3)
         recyclerViewNote!!.setHasFixedSize(true)
