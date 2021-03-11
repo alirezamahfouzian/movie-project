@@ -92,9 +92,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, Not
 
     private fun setRecyclerViewMovie() {
         mAdapter = MoviesRecyclerViewAdapter(mActivity, this)
-        recyclerViewNote!!.layoutManager = GridLayoutManager(mActivity, 3)
-        recyclerViewNote!!.setHasFixedSize(true)
-        recyclerViewNote!!.adapter = mAdapter
+        recyclerViewMovie!!.layoutManager = GridLayoutManager(mActivity, 3)
+        recyclerViewMovie!!.setHasFixedSize(true)
+        recyclerViewMovie!!.adapter = mAdapter
         setRecyclerViewData()
     }
 
@@ -146,7 +146,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, Not
                 }
             }
         }
-        recyclerViewNote.addOnScrollListener(mScrollListener)
+        recyclerViewMovie.addOnScrollListener(mScrollListener)
     }
 
     override fun onNoteClickListener(movie: MovieEntity, position: Int) {
