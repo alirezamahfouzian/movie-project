@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, NoteClickListener {
+class HomeFragment : Fragment(R.layout.fragment_home), View.OnClickListener, MovieClickListener {
 
     private val TAG = "HomeFragment"
 

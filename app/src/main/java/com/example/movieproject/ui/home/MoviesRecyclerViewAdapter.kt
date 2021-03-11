@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieproject.R
 import com.example.movieproject.network.entity.MovieEntity
-import com.example.movieproject.ui.MainActivity
 import javax.inject.Inject
 
 
@@ -21,7 +20,7 @@ class MoviesRecyclerViewAdapter @Inject constructor(
 ) : RecyclerView.Adapter<MoviesRecyclerViewAdapter.ViewHolder>() {
     val TAG = "MoviesRecyclerView"
     var mResponseList: List<MovieEntity> = ArrayList()
-    private val noteClickListener: NoteClickListener
+    private val mMovieClickListener: MovieClickListener
 
     fun setData(responseList: List<MovieEntity>) {
         val oldList = mResponseList
@@ -34,7 +33,7 @@ class MoviesRecyclerViewAdapter @Inject constructor(
     }
 
     init {
-        noteClickListener = fragment
+        mMovieClickListener = fragment
     }
 
 
@@ -79,7 +78,7 @@ class MoviesRecyclerViewAdapter @Inject constructor(
         holder.textViewTitle!!.text = listNote.title
         Glide.with(mContext).load(url).into(holder.imageViewPoster!!);
         holder.itemView.setOnClickListener {
-            noteClickListener.onNoteClickListener(
+            mMovieClickListener.onNoteClickListener(
                 listNote,
                 position
             )
